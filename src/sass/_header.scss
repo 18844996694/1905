@@ -37,6 +37,9 @@
                 color: #999;
                 text-decoration: none;
             }
+            .hover_color{
+                color: $hover-color;
+            }
             ul li{
                 float: right;
                 width: 94px;
@@ -62,10 +65,25 @@
             float: left;
             padding: 30px 0 0 200px;
             input{
-                width: 464px;
+                width: 454px;
                 height: 42px;
                 float: left;
+                padding-left:10px; 
                 border: 1px solid $hover-color;
+            }
+            ul {
+                width: 454px;
+                padding-left: 10px;
+                border:1px solid $hover-color;
+                background: #fff;
+                position: absolute;
+                top: 108px;
+                left: 465px;
+                z-index: 300;
+                border-top:none; 
+                li{
+                    margin-bottom: 10px;
+                }
             }
             .btn1{
                 width: 72px;

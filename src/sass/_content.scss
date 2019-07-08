@@ -124,7 +124,13 @@
     .other_goods{
         width: $section-width;
         margin: 0 auto;
-        background: red;
+        p{
+            width:$section-width;
+            height: 50px;
+            font-size: $market-fontsize-20+2;
+            line-height: 50px;
+            margin: 10px 0;
+        }
         li{
             width: 229px;
             height: 301px;
@@ -148,7 +154,8 @@
                 height: 301px;
             }
             p{
-                color: #666;
+                width: 229px;
+                color: #000;
                 font-size: $market-fontsize-14;
                 margin-top: 20px;
             }
@@ -161,5 +168,124 @@
             margin-right:0;
         }
             
+    }
+}
+.details{
+    .detail_left{
+        width: 400px;
+        float: left;
+        margin-left: 50px;
+        position: relative;
+        .scale{
+            padding-right: 50px;
+            .spic{
+                border: 1px solid #ccc;
+                padding: 10px;
+                width: 400px;
+                height: 400px;
+                position: relative;
+                img{
+                    width: 350px;
+                    height: 350px;
+                }
+                .xiaofang{
+                    background: yellow;
+                    opacity: .5;
+                    position: absolute;
+                    display: none;
+                    top: 0;
+                    left: 0;
+                }
+            }
+            .icolist{
+                width:400px;
+                height: 60px;
+                line-height: 60px;
+                margin-top: 5px;
+                #left{
+                    text-decoration: none;
+                    width:12px;
+                    float: left;
+                }
+                #right{
+                    text-decoration: none;
+                    width:12px;
+                    float: left; 
+                }
+                .movelist{
+                    width: 376px;
+                    height: 62px;
+                    float: left;
+                    overflow: hidden;
+                    position: relative;  
+                    ul{
+                        position: absolute;
+                        left:0px;
+                        top:0px;
+                        li{
+                            float: left;
+                            padding:0 5px;
+                            margin-right: 3px;
+                            border: 1px solid gray;
+                            img{
+                                width: 60px;
+                                height: 60px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .dafang{
+            width: 500px;
+            height: 500px;
+            background: #fff;
+            border: 1px solid gray;
+            float: left;
+            overflow: hidden;
+            position: absolute;
+            left:403px;
+            top:0px;
+            display: none;
+           img{
+               width: 700px;
+               height: 700px;
+           }
+        }
+    }
+    .detail_right{
+        float: left;
+        margin-left: 50px;
+        .title{
+            font-size:$login-fontsize;
+            margin-bottom: 20px;
+        }
+        .price{
+            width: 600px;
+            height: 60px;
+            padding-left:10px; 
+            color: red;
+            background: #f8f8f8;
+            line-height: 60px;
+            font-size: $login-fontsize;
+            margin-bottom: 20px;
+        }
+        .goodsnum{
+            input{
+                width: 100px;
+                height: 40px;
+                text-align: center;
+                line-height: 40px;
+                margin-bottom:10px; 
+            }
+            button{
+                width: 240px;
+                height: 50px;
+                text-align: center;
+                line-height: 50px;
+                border: none;
+                background: #fd532d;
+            }
+        }
     }
 }

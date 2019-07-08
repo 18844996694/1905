@@ -1,0 +1,56 @@
+.others{
+    width: $box-width;
+    background: #eee;
+    float: left;
+    .bategoods{
+        width: $section-width+10;
+        height: 220px;
+        margin: 0 auto;
+        p{
+            width:$section-width;
+            height: 50px;
+            color: #666;
+            font-size: $market-fontsize-20+2;
+            line-height: 50px;
+        }
+        li{
+            width: 229px;
+            height: 301px;
+            float: left;
+            background: #fff;
+            margin-right: 21px;
+            margin-bottom: 10px;
+            text-align: center;
+            a{
+                text-decoration: none;
+            }
+            .box{
+                width: 200px;
+                height: 160px;
+                text-align: center;
+                margin:  30px 0 10px 10px; 
+                img{
+                    width: 160px;
+                    height: 160px;
+                }
+            }
+            a img{
+                width: 229px;
+                height: 301px;
+            }
+            p{
+                color: #666;
+                font-size: $market-fontsize-14;
+                margin-top: 20px;
+                width: 229px;
+            }
+            span{
+                color: red;
+                font-size: $market-fontsize-18;
+            }
+        } 
+        .right{
+            margin-right:0;
+        }
+    }
+}
