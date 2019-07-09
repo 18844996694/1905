@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,IAAI;EACA,KAAK,EAAE,KAAK;EACZ,UAAU,EAAE,KAAK;EACjB,WAAW,EAAC,IAAI;EAChB,MAAM,EAAE,aAAa;EACrB,QAAQ,EAAE,QAAQ",
+"sources": ["../sass/registor.scss"],
+"names": [],
+"file": "registor.css"
+}

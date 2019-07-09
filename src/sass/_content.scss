@@ -171,6 +171,7 @@
     }
 }
 .details{
+    height: 500px;
     .detail_left{
         width: 400px;
         float: left;
@@ -195,6 +196,7 @@
                     display: none;
                     top: 0;
                     left: 0;
+                    cursor: pointer;
                 }
             }
             .icolist{
@@ -214,7 +216,7 @@
                 }
                 .movelist{
                     width: 376px;
-                    height: 62px;
+                    height: 63px;
                     float: left;
                     overflow: hidden;
                     position: relative;  
@@ -250,6 +252,7 @@
            img{
                width: 700px;
                height: 700px;
+               position: absolute;
            }
         }
     }

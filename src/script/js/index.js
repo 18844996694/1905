@@ -4,7 +4,7 @@
         url: "http://10.31.158.47/360market/1905/php/",
         dataType: 'json',
         success: function (piclist) {
-            console.log(piclist);
+            //console.log(piclist);
             let htmlul = '<ul>';
             for (let i = 0; i < piclist.length; i++) {
                 htmlul += `

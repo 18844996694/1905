@@ -471,6 +471,9 @@
   margin-right: 0;
 }
 
+.details {
+  height: 500px;
+}
 .details .detail_left {
   width: 400px;
   float: left;
@@ -498,6 +501,7 @@
   display: none;
   top: 0;
   left: 0;
+  cursor: pointer;
 }
 .details .detail_left .scale .icolist {
   width: 400px;
@@ -517,7 +521,7 @@
 }
 .details .detail_left .scale .icolist .movelist {
   width: 376px;
-  height: 62px;
+  height: 63px;
   float: left;
   overflow: hidden;
   position: relative;
@@ -552,6 +556,7 @@
 .details .detail_left .dafang img {
   width: 700px;
   height: 700px;
+  position: absolute;
 }
 .details .detail_right {
   float: left;
