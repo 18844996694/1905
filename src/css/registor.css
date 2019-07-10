@@ -1,9 +1,130 @@
 .box {
   width: 450px;
   min-height: 100px;
-  padding-top: 40px;
-  border: 1px solid red;
+  padding-top: 5px;
+  margin: 100px auto;
+  border: 1px solid #ddd;
+  background: #eee;
+  border-radius: 5px;
+}
+.box .header .option {
+  text-align: right;
+  margin: 0 10px 0 0;
+  font-size: 18px;
+  color: gray;
+}
+.box .header .option a {
+  text-decoration: none;
+  color: #36b447;
+}
+.box .header .registor {
+  height: 25px;
+  font-size: 20px;
+  text-align: center;
+  margin: 0;
+  color: #36b447;
+}
+.box .content {
+  width: 410px;
+  margin-top: 30px;
+  padding-left: 40px;
+}
+.box .content .p1 {
+  width: 375px;
+  height: 40px;
+  line-height: 40px;
   position: relative;
+  margin-bottom: 20px;
+}
+.box .content .p1 i {
+  font-size: 20px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: #ccc;
+}
+.box .content .p1 input {
+  border: none;
+  background: none;
+  width: 375px;
+  height: 40px;
+  padding-left: 35px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+}
+.box .content .p1 span {
+  position: absolute;
+  top: 30px;
+  left: 10px;
+}
+.box .content .p2 {
+  width: 156px;
+  height: 40px;
+  line-height: 40px;
+  position: relative;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+.box .content .p2 i {
+  font-size: 20px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: #ccc;
+}
+.box .content .p2 input {
+  border: none;
+  background: none;
+  width: 156px;
+  height: 40px;
+  padding-left: 40px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+}
+.box .content .p2 span {
+  position: absolute;
+  top: 30px;
+  left: 10px;
+}
+.box .content .rannum {
+  display: inline-block;
+  width: 100px;
+  border: 1px solid #ccc;
+  font-size: 20px;
+  margin-left: 20px;
+  text-align: center;
+  padding: 4px;
+}
+.box .content em {
+  cursor: pointer;
+  margin-left: 20px;
+  color: #36b447;
+}
+.box .content .p3 {
+  margin-bottom: 20px;
+}
+.box .content .p3 input {
+  margin-right: 5px;
+}
+.box .content .p3 span {
+  color: #36b447;
+}
+.box .content .p4 input {
+  width: 375px;
+  height: 40px;
+  border: none;
+  background: #36b447;
+  margin-left: 0;
+  color: #fff;
+  font-size: 20px;
+}
+.box .content .p5 {
+  padding-right: 10px;
+  text-align: right;
+}
+.box .content .p5 a {
+  text-decoration: none;
+  color: #36b447;
 }
 
 /*# sourceMappingURL=registor.css.map */

@@ -80,7 +80,7 @@
   padding-left: 10px;
   border: 1px solid #23ac38;
 }
-.header .top_b .int ul {
+.header .top_b .int .hideul {
   width: 454px;
   padding-left: 10px;
   border: 1px solid #23ac38;
@@ -90,8 +90,9 @@
   left: 465px;
   z-index: 300;
   border-top: none;
+  display: none;
 }
-.header .top_b .int ul li {
+.header .top_b .int .hideul li {
   margin-bottom: 10px;
 }
 .header .top_b .int .btn1 {

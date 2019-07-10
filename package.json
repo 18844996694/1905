@@ -1,0 +1,23 @@
+{
+  "name": "1905",
+  "version": "1.0.0",
+  "description": "360商城",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/18844996694/1905.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/18844996694/1905/issues"
+  },
+  "homepage": "https://github.com/18844996694/1905#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-minify-html": "^1.0.6"
+  }
+}

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        span {
+            margin-left: 20px;
+        }
+        input{
+            width: 240px;
+            height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <fieldset style="width: 600px;margin:0 auto;border-color: gray;">
+        <form action="http://www.baidu.com">
+            <p><label for="">邮　　箱：</label><input type="text" placeholder="请输入邮箱"><span></span></p>
+            <p><label for="">密　　码：</label><input type="text" placeholder="6-16位英文大小写字母、数字或符号组合"><span></span>
+                <br>
+                <i style="font-style:normal;font-size:10px;margin-left:80px;">安全强度：</i><i
+                    style="display:inline-block;width:50px;background:#ccc;font-style:normal;font-size:10px;text-align: center;margin-right:5px;">弱</i><i
+                    style="display:inline-block;width:50px;background:#ccc;font-style:normal;font-size:10px;text-align: center;margin-right:5px; ">中</i><i
+                    style="display:inline-block;width:50px;background:#ccc;font-style:normal;font-size:10px;text-align: center;">强</i>
+            </p>
+            <p><label for="">确认密码：</label><input type="text" placeholder="请再次确认密码"><span></span></p>
+            <p><label for="">手机号码：</label><input type="text" placeholder="请输入手机号码"><span></span></p>
+            <p><label for="">图片验证码:</label><input type="text" style="width:50px;"><em
+                    style="font-size:20px;font-style:normal;color:red;margin: 0 10px 0 10px;font-weight: 1000; display:inline-block;width: 50px;">wy54</em><b
+                    style="font-size:12px;font-style: normal;">看不清?</b>
+                <rt style="font-size:12px;color: blue;cursor: pointer;">换一张</rt><span></span>
+            </p>
+            <p><input type="submit" value="同意协议并注册" style="width:150px;background:red;border:1px solid #ddd;"></p>
+        </form>
+    </fieldset>
+    <script>
+        var oForm = document.querySelector('form');
+        var oInput = document.querySelectorAll('input');
+        var oSpan = document.querySelectorAll('span');
+        var oI = document.querySelectorAll('i')
+        var oStrong = document.querySelector('strong');
+        var oEm = document.querySelector('em');
+        var oRt = document.querySelector('rt');
+        var emil=true,serect=true,aserect=true,phono=true,ynum=true;
+        //邮箱
+        oInput[0].onfocus = function () {
+            oSpan[0].innerHTML = '邮箱不能为空';
+            oSpan[0].style.cssText = 'font-size:12px;color:red;padding:2px;background:pink;display:inline-block;width:200px;'
+        }
+        oInput[0].onblur = function () {
+            if (this.value != '') {
+                var reg = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+                if (reg.test(this.value)) {
+                    oSpan[0].innerHTML = '√';
+                    oSpan[0].style.cssText = 'background:#fff;'
+                    oSpan[0].style.color = 'green';
+                    emil=true;
+                } else {
+                    oSpan[0].innerHTML = '输入有误';
+                    oSpan[0].style.color = 'red';
+                    emil=false;
+                }
+            } else {
+                oSpan[0].innerHTML = '邮箱不能为空';
+                oSpan[0].style.cssText = 'font-size:12px;color:red;padding:2px;background:pink;display:inline-block;width:200px;'
+                emil=false;
+            }
+        }
+
+
+        //密码
+        oInput[1].onfocus = function () {
+            if (this.value == '') {
+            oSpan[1].innerHTML = '密码不能为空';
+            oSpan[1].style.cssText = 'font-size:12px;color:red;padding:2px;background:pink;display:inline-block;width:200px;'
+            }
+        }
+        oInput[1].onblur = function () {
+            if (this.value == '') {
+                oSpan[1].innerHTML = '密码不能为空';
+                oSpan[1].style.cssText = 'font-size:12px;color:red;padding:2px;background:pink;display:inline-block;width:200px;';
+                oSpan[1].style.color = 'red';
+                serect=false;
+            }
+        }
+        oInput[1].oninput = function () {
+            if (this.value.length >= 6 && this.value.length <= 16) {
+                oSpan[1].innerHTML = '√';
+                oSpan[1].style.cssText = 'background:#fff;'
+                oSpan[1].style.color = 'green';
+                serect=true
+                var num = 0;
+                var numreg = /\d+/;
+                var smallreg = /[a-z]+/;
+                var bigreg = /[A-Z]+/;
+                var otherreg = /\W\_/;
+                if (numreg.test(this.value)) {
+                    num++;
+                }
+                if (smallreg.test(this.value)) {
+                    num++;
+                }
+                if (bigreg.test(this.value)) {
+                    num++;
+                }
+                if (otherreg.test(this.value)) {
+                    num++;
+                }
+                switch (num) {
+                    case 1:
+                        oI[1].style.background = 'pink';
+                        serect=true;
+                        break;
+                    case 2:
+                        oI[2].style.background = 'pink';
+                        oI[1].style.background = '#ccc';
+                        serect=true;
+                        break;
+                    case 3:
+                    case 4:
+                        oI[3].style.background = 'pink';
+                        oI[2].style.background = '#ccc';
+                        oI[1].style.background = '#ccc';
+                        serect=true;
+                        break;
+                }
+            } else {
+                oSpan[1].innerHTML = '密码长度有误';
+                oSpan[1].style.cssText = 'font-size:12px;color:red;padding:2px;background:pink;display:inline-block;width:200px;';
+                oSpan[1].style.color = 'red';
+                serect=false;
+            }
+        }
+
+
+        //确认密码
+        oInput[2].onfocus = function () {
+            if (this.value == '') {
+                oSpan[2].innerHTML = '请确认密码';
+                oSpan[2].style.cssText = 'font-size:12px;color:red;padding:2px;background:pink;display:inline-block;width:200px;';
+                // sfzflag=false;
+            }
+        };
+        oInput[2].onblur = function () {
+            if (this.value != '') {
+                if (oInput[2].value == oInput[1].value) {//匹配成功
+                    oSpan[2].innerHTML = '√';
+                    oSpan[2].style.color = 'green';
+                    oSpan[2].style.background = '#fff'
+                    aserect=true;
+                } else {//报错
+                    oSpan[2].innerHTML = '密码输入有误';
+                    oSpan[2].style.cssText = 'font-size:12px;color:red;padding:2px;background:pink;display:inline-block;width:200px;'
+                    aserect=false;
+                }
+
+            } else {
+                oSpan[2].innerHTML = '密码输入有误';
+                oSpan[2].style.cssText = 'font-size:12px;color:red;padding:2px;background:pink;display:inline-block;width:200px;'
+                aserect=false;
+            }
+        };
+
+
+
+        //手机号码
+        oInput[3].onfocus = function () {
+            oSpan[3].innerHTML = '号码输入不能为空';
+            oSpan[3].style.cssText = 'font-size:12px;color:red;padding:2px;background:pink;display:inline-block;width:200px;'
+        }
+        oInput[3].onblur = function () {
+            if (this.value != '') {
+                var reg = /^1[3|5|7|8]\d{9}$/;
+                if (reg.test(this.value)) {
+                    oSpan[3].innerHTML = '√';
+                    oSpan[3].style.color = 'green';
+                    oSpan[3].style.background = '#fff'
+                    phono=true;
+                } else {
+                    oSpan[3].innerHTML = '输入有误';
+                    oSpan[3].style.cssText = 'font-size:12px;color:red;padding:2px;background:pink;display:inline-block;width:200px;'
+                    phono=false;
+                }
+            } else {
+                oSpan[3].innerHTML = '请输入手机号码';
+                oSpan[3].style.cssText = 'font-size:12px;color:red;padding:2px;background:pink;display:inline-block;width:200px;'
+                phono=false;
+            }
+
+        }
+
+        //验证码
+        oInput[4].onfocus = function () {
+            oSpan[4].innerHTML = '图片验证码不能为空';
+            oSpan[4].style.cssText = 'font-size:12px;color:red;padding:2px;background:pink;display:inline-block;width:200px;'
+        }
+        oInput[4].onblur = function () {
+            if (this.value != '') {
+                if (oInput[4].value == oEm.innerHTML) {
+                    oSpan[4].innerHTML = '√';
+                    oSpan[4].style.cssText = 'background:#fff;'
+                    oSpan[4].style.color = 'green';
+                    ynum=true;
+                } else {
+                    oSpan[4].innerHTML = '验证码错误';
+                    oSpan[4].style.color = 'red';
+                    ynum=false;
+                }
+            } else {
+                oSpan[4].innerHTML = '图片验证码不能为空';
+                oSpan[4].style.cssText = 'font-size:12px;color:red;padding:2px;background:pink;display:inline-block;width:200px;'
+                ynum=false;
+            }
+        }
+        oRt.onclick = function () {
+            oEm.innerHTML = '';
+            var arr = [];
+            for (var i = 48; i <= 57; i++) {
+                arr.push(String.fromCharCode(i));
+            }
+            // console.log(arr[0]);
+            for (var i = 97; i <= 122; i++) {
+                arr.push(String.fromCharCode(i));
+            }
+            var str = '';
+            var str1='';
+            for (var i = 0; i < 4; i++) {
+                var nrandom = parseInt(Math.random() * arr.length)
+                if (nrandom < 10) {
+                    str += arr[nrandom];
+                } else {
+                    var isorno = Math.random() < 0.5 ? true : false;
+                    if (isorno) {
+                        str += arr[nrandom].toUpperCase();
+                    } else {
+                        str += arr[nrandom];
+                    }
+                }
+            }
+            for (var i = 0; i < 4; i++) {
+                str1+= str[i];
+            }
+            oEm.innerHTML =str1;
+        }
+        
+
+        //验证form
+        oForm.onsubmit=function(){
+            if (oInput[0].value == '') {
+                oSpan[0].innerHTML = '邮箱不能为空';
+                oSpan[0].style.cssText = 'font-size:12px;color:red;padding:2px;background:pink;display:inline-block;width:200px;'
+                emil=false;
+            }
+            if (oInput[1].value == '') {
+                oSpan[1].innerHTML = '密码不能为空';
+                oSpan[1].style.cssText = 'font-size:12px;color:red;padding:2px;background:pink;display:inline-block;width:200px;'
+                serect=false;
+            }
+            if (oInput[2].value == '') {
+                oSpan[2].innerHTML = '请确认密码';
+                oSpan[2].style.cssText = 'font-size:12px;color:red;padding:2px;background:pink;display:inline-block;width:200px;'
+                aserect=false;
+            }
+            if (oInput[3].value == '') {
+                oSpan[3].innerHTML = '号码输入不能为空';
+                oSpan[3].style.cssText = 'font-size:12px;color:red;padding:2px;background:pink;display:inline-block;width:200px;'
+                phono=false;
+            }
+            if (oInput[4].value == '') {
+                oSpan[4].innerHTML = '图片验证码不能为空';
+                oSpan[4].style.cssText = 'font-size:12px;color:red;padding:2px;background:pink;display:inline-block;width:200px;'
+                ynum=false;
+            }
+            if(!emil || !serect ||!aserect ||!phono ||!ynum){
+                return false;
+            }
+        }
+    </script>
+</body>
+
+</html>

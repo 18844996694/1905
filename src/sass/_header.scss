@@ -71,7 +71,7 @@
                 padding-left:10px; 
                 border: 1px solid $hover-color;
             }
-            ul {
+            .hideul {
                 width: 454px;
                 padding-left: 10px;
                 border:1px solid $hover-color;
@@ -81,6 +81,7 @@
                 left: 465px;
                 z-index: 300;
                 border-top:none; 
+                display: none;
                 li{
                     margin-bottom: 10px;
                 }
