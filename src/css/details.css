@@ -36,6 +36,25 @@
 }
 .header .top_t .right {
   float: right;
+  position: relative;
+}
+.header .top_t .right .welcome {
+  width: 183px;
+  position: absolute;
+  top: 0;
+  right: 145px;
+  height: 36px;
+  line-height: 36px;
+  display: none;
+}
+.header .top_t .right .welcome span {
+  color: red;
+}
+.header .top_t .right .welcome button {
+  border: none;
+  color: green;
+  margin-left: 10px;
+  background: #ccc;
 }
 .header .top_t .right ul a {
   float: right;
@@ -90,7 +109,7 @@
   left: 465px;
   z-index: 300;
   border-top: none;
-  display: none;
+  border-bottom: none;
 }
 .header .top_b .int .hideul li {
   margin-bottom: 10px;

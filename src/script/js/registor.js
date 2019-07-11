@@ -9,28 +9,15 @@
     const $password = $('.password');
     const $passspan = $('.passspan');
     let $flag = true;
+    let $flagn=true;
+    let $flags=true;
     //用户名验证
     $username.focus(function () {
         $spanid[0].innerHTML = '用户名不能为空';
         $spanid.css('color', 'orange');
+        $flag = false;
     });
     $username.blur(function () {
-        if ($(this).val() != '') {
-            var reg = /^1[3|5|7|8]\d{9}$/;
-            if (reg.test($(this).val())) {
-                $spanid.innerHTML = '√';
-                $spanid.css('color', 'green');
-                $flag = true;
-            } else {
-                $spanid.innerHTML = '输入有误';
-                $spanid.css('color', 'red');
-                $flag = false;
-            }
-        } else {
-            $spanid[0].innerHTML = '请输入手机号码';
-            $spanid.css('color', 'red');
-            $flag = false;
-        }
         $.ajax({
             type: 'post',
             url: 'http://10.31.158.47/360market/1905/php/registor.php',
@@ -50,6 +37,22 @@
                 }
             }
         });
+        if ($(this).val() != '') {
+            var reg = /^1[3|5|7|8]\d{9}$/;
+            if (reg.test($(this).val())) {
+                $spanid[0].innerHTML = '√';
+                $spanid.css('color', 'green');
+                $flag = true;
+            } else {
+                $spanid[0].innerHTML = '输入有误';
+                $spanid.css('color', 'red');
+                $flag = false;
+            }
+        } else {
+            $spanid[0].innerHTML = '请输入手机号码';
+            $spanid.css('color', 'red');
+            $flag = false;
+        }
     });
     //验证码验证
     $number.blur(function () {
@@ -57,13 +60,16 @@
             if ($number.val() == $rannum[0].innerHTML) {
                 $numspan[0].innerHTML = '√';
                 $numspan.css('color', 'green');
+                $flagn=true;
             } else {
                 $numspan[0].innerHTML = '验证码错误';
                 $numspan.css('color', 'red');
+                $flagn=false;
             }
         } else {
             $numspan[0].innerHTML = '图片验证码不能为空';
             $numspan.css('color', 'red');
+            $flagn=false;
         }
     })
     $em.on('click', function () {
@@ -101,17 +107,20 @@
         if ($(this).val() == '') {
             $passspan[0].innerHTML = '密码不能为空';
             $passspan.css('color', 'red');
+            $flags=false;
         }
         if ($(this).val().length >= 8 && $(this).val().length <= 20) {
             $passspan[0].innerHTML = '√';
             $passspan.css('color', 'grenn');
+            $flags=true;
         }else {
             $passspan[0].innerHTML = '密码长度有误';
             $passspan.css('color', 'red');
+            $flags=false;
         }
     });
     $submit.on('click', function () {
-        if (!$flag) {
+        if (!$flag || !$flagn || !$flags) {
             return false;
         }
     });

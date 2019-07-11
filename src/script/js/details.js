@@ -13,6 +13,7 @@
     const $details = $('.details');
     const $btn = $('.goodsnum button');
     const $oNum = $('.oNum');
+    const $cartnum=$('.cartnum');
     $.ajax({
         url: 'http://10.31.158.47/360market/1905/php/details.php',
         data: {
@@ -50,8 +51,8 @@
         $dafang.show();
         $spic.on('mouseover', function (ev) {
             var ev = ev || window.event;
-            let $l = ev.pageX - $details.offset().left - $xiaofang.width() / 2;
-            let $t = ev.pageY - $details.offset().top - $xiaofang.height() / 2;
+            let $l = ev.pageX - $spic.offset().left - $xiaofang.width() / 2;
+            let $t = ev.pageY - $spic.offset().top - $xiaofang.height() / 2;
             if ($l < 0) {
                 $l = 0;
             } else if ($l > $spic.width() - $xiaofang.width()) {
@@ -75,7 +76,41 @@
         $xiaofang.hide();
         $dafang.hide();
     });
-
+    //点击切换小图
+    $('.movelist ul').on('mouseover','li',function(){
+        var $imgurl=$(this).find('img').attr('src');
+        $('.smallpic').attr('src',$imgurl);
+        $('.bpic').attr('src',$imgurl);
+    });
+    //点击小图箭头切换
+    var $num=5;//放大镜显示6张。
+    $('#right').on('click',function(){
+        var $list=$('.movelist ul li');//8
+        if($list.length>$num){
+            $num++;
+            $('#left').css('color','#333');
+            if($list.length==$num){
+                $('#right').css('color','#fff');
+            }
+            $('.movelist ul').animate({
+                left:-($num-5)*$list.eq(0).innerWidth()-5
+            })
+        }
+    });
+    
+    $('#left').on('click',function(){
+        var $list=$('.movelist ul li');//8
+        if($num>5){
+            $num--;
+            $('#right').css('color','#333');
+            if($num<=5){
+                $('#left').css('color','#fff');
+            }
+            $('.movelist ul').animate({
+                left:-($num-5)*$list.eq(0).innerWidth()+1
+            })
+        }
+    });
     //购物车
     let arrsid = [];
     let arrnum = [];
@@ -101,4 +136,12 @@
             setcookie('cookienum',arrnum.toString(),10);
          }
     });
+    if(getcookie('cookienum')){
+        let arrnum=getcookie('cookienum').split(',');
+        let $sum=0;
+        for(let i=0;i<arrnum.length;i++){
+            $sum+=Number(arrnum[i]);
+        }
+       $cartnum[0].innerHTML=$sum;
+    }
 }(jQuery);

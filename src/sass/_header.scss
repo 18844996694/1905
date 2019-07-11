@@ -28,6 +28,25 @@
         }
         .right{
             float: right;
+            position: relative;
+            .welcome{
+                width: 183px;
+                position: absolute;
+                top: 0;
+                right: 145px;
+                height: 36px;
+                line-height: 36px;
+                span{
+                    color: red;
+                }
+                button{
+                    border: none;
+                    color: green;
+                    margin-left: 10px;
+                    background: #ccc;
+                }
+                display: none;
+            }
             ul a{
                 float: right;
                 width: 58px;
@@ -37,6 +56,7 @@
                 color: #999;
                 text-decoration: none;
             }
+            
             .hover_color{
                 color: $hover-color;
             }
@@ -49,6 +69,7 @@
                 color: #999;
                 margin-left: 8px;
                 cursor: pointer;
+                
             }
         }
     }
@@ -81,7 +102,7 @@
                 left: 465px;
                 z-index: 300;
                 border-top:none; 
-                display: none;
+                border-bottom:none; 
                 li{
                     margin-bottom: 10px;
                 }

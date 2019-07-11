@@ -19,13 +19,18 @@
             htmlul += '</ul>';
             $bategoods[0].innerHTML="<p>更多商品</p>"+htmlul;
         }
-    })
+    });
 }(jQuery);
 !(function ($) {
     // 头部划过效果
     const $sideleft = $('.sideleft');
     const $sideright = $('.sideright');
     const $oA=$('.header .right ul a');
+    const $admin=$('.admins');
+    const $welcome=$('.welcome');
+    const $out=$('.out');
+    const $rename=$('.rename');
+    const $cartnum=$('.cartnumber');
     $sideleft.hover(function () {
         $sideright.addClass('show_right');
     }, function () {
@@ -36,15 +41,35 @@
     },function(){
         $(this).removeClass('hover_color');
     });
-    
+    if(getcookie('username')&&getcookie('password')){
+        $admin.hide();
+        $welcome.show();
+        $rename[0].innerHTML=getcookie('username');
+    };
+    $out.on('click',function(){
+        delcookie('username');
+        delcookie('password');
+        $admin.show();
+        $welcome.hide();
+    });
+    if(getcookie('cookienum')){
+        let arrnum=getcookie('cookienum').split(',');
+        let $sum=0;
+        for(let i=0;i<arrnum.length;i++){
+            $sum+=Number(arrnum[i]);
+        }
+       $cartnum[0].innerHTML=$sum;
+    }
+    $(function() {//和拼接的元素放在一起。
+        $("img.lazy").lazyload({
+            effect: "fadeIn"//图片显示方式
+        });
+    });
 })(jQuery);
 
 //轮播图
 !(function($){
-    $.fn.extend({
-        lunbotu:function(){
             const $circle = $('.circle li');
-
             const $picli = $('.sidebox ul li');
             const $right = $('.sidebox .right');
             const $left = $('.sidebox .left');
@@ -90,6 +115,4 @@
                 $picli.eq($num).addClass('showpic').siblings().removeClass('showpic');
                 $picli.eq($num).css('transition','all 0.7s');
             }
-        }
-    })
-})(jQuery)
+})(jQuery);
