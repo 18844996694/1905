@@ -18,6 +18,14 @@
   "homepage": "https://github.com/18844996694/1905#readme",
   "devDependencies": {
     "gulp": "^4.0.2",
-    "gulp-minify-html": "^1.0.6"
+    "gulp-imagemin": "^6.0.0",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-minify-html": "^1.0.6",
+    "gulp-uglify": "^3.0.2"
+  },
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-es2015": "^6.24.1",
+    "gulp-babel": "^7.0.1"
   }
 }

@@ -23,8 +23,8 @@
                     location.href='http://10.31.158.47/360market/1905/src/index.html';
                 }else{
                     alert('用户名或密码错误');
-                    username.val()='';
-                    password.val()='';
+                    username.val('');
+                    password.val('');
                 }
             }
         });
